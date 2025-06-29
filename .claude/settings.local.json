@@ -6,7 +6,12 @@
       "Bash(go mod:*)",
       "Bash(go build:*)",
       "Bash(go test:*)",
-      "Bash(./stream-snatchet --help)"
+      "Bash(./stream-snatchet --help)",
+      "Bash(export DISPLAY=:0)",
+      "Bash(dbus-launch:*)",
+      "Bash(./stream-snatchet \"https://iframe.mediadelivery.net/embed/55476/c847d80a-2897-4ec2-9d81-9b9f5350034d\")",
+      "Bash(sudo apt:*)",
+      "Bash(sudo apt install:*)"
     ],
     "deny": []
   }

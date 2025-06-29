@@ -70,7 +70,13 @@ func (m *Merger) createSegmentsList(segments []models.Segment, segmentsDir, list
 			continue
 		}
 
-		_, err := writer.WriteString(fmt.Sprintf("file '%s'\n", segmentPath))
+		// Convert to absolute path and escape for concat demuxer
+		absPath, err := filepath.Abs(segmentPath)
+		if err != nil {
+			absPath = segmentPath
+		}
+
+		_, err = writer.WriteString(fmt.Sprintf("file '%s'\n", strings.ReplaceAll(absPath, "'", "'\\''")))
 		if err != nil {
 			return err
 		}
